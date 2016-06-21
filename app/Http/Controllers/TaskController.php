@@ -53,13 +53,22 @@ class TaskController extends Controller
         return redirect('/tasks'); 
     }
     
-    //nothing references the below route yet
+
     public function update(Request $request, Task $task)
     {
 
             $task->update([
-                'name'=> $request->name,     
+                'name'=> $request->name,
             ]); 
+        
+        return redirect('/tasks'); 
+    }
+    
+    public function setCompletionStateTask(Request $request, Task $task) 
+    {
+        $task->update([
+            'completed'=> 1, 
+        ]);
         
         return redirect('/tasks'); 
     }

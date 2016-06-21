@@ -57,6 +57,7 @@ Route::get('/tasks', 'TaskController@index');
 Route::post('/task', 'TaskController@store');
 Route::delete('/task/{task}', 'TaskController@destroy'); 
 Route::post('/task/{task}', 'TaskController@update'); 
+Route::post('/task/{task}', 'TaskController@setCompletionStateTask'); 
 
 // Authentication Routes...
 Route::get('/login', 'Auth\AuthController@getLogin');

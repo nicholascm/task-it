@@ -71,6 +71,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-btn fa-user"></i>Register
                                 </button>
+                                <a class = "btn btn-success" href = "{{ url('/login') }}">Login</a>
                             </div>
                         </div>
                     </form>
