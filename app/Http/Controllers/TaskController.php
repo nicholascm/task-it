@@ -53,7 +53,7 @@ class TaskController extends Controller
         return redirect('/tasks'); 
     }
     
-
+    //nothing references the below route yet
     public function update(Request $request, Task $task)
     {
 
@@ -67,7 +67,7 @@ class TaskController extends Controller
     public function setCompletionStateTask(Request $request, Task $task) 
     {
         $task->update([
-            'completed'=> 1, 
+            'completed'=> $request->completed, 
         ]);
         
         return redirect('/tasks'); 

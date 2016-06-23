@@ -8,7 +8,7 @@ class Task extends Model
 {
     //
     
-    protected $fillable = ['name']; 
+    protected $fillable = ['name', 'completed']; 
     
     public function user() 
     {

@@ -46,6 +46,7 @@
     @if (count($tasks) > 0)
     <div class = "container"> 
     
+                <h3 class = "text-center">Tasks</h3>
 
                <ul class = "list-group">
                 @foreach($tasks as $task) 
@@ -54,6 +55,7 @@
                               <div class="container">
                                 <div class="row">
                                   <div class="col-xs-8">
+                                      
                                     <form id = "completeForm{{$task->id}}" name = "completed" action = "{{ url('task/'.$task->id) }}" method = "POST">
                                           {{ csrf_field() }}
                                         <input class = "completionCheckbox" id ="{{$task->id}}" type = "checkbox" name = "completed" value = "{{$task->id}}">
@@ -64,6 +66,42 @@
                                         <form action = "{{url('task/'.$task->id)}}" method = "POST">
                                             {{csrf_field()}}
                                           <input name = "name"  class = "form-control" value = "{{$task->name}}">
+                                          <button class = "saveButton btn btn-success">Save</button>
+                                        </form>                                        
+                                    </div>
+
+                                
+                                  </div>
+                                  <div class="col-xs-4">
+                                    <button value = "{{$task->id}}" class = "editButton btn btn-primary">Edit</button>
+                                    <form action="{{ url('task/'.$task->id) }}" method="POST">
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
+                            
+                                        <button class = "btn btn-alert">Delete</button>
+                                    </form>
+                                      <!--<a><span id = "edit" class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                                      <a><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a> -->
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                    @elseif($task->completed != FALSE)
+                            <li class="list-group-item">
+                              <div class="container">
+                                <div class="row">
+                                  <div class="col-xs-8">
+                                      
+                                    <form id = "completeForm{{$task->id}}" name = "completed" action = "{{ url('task/'.$task->id) }}" method = "POST">
+                                          {{ csrf_field() }}
+                                        <input class = "completionCheckbox" id ="{{$task->id}}" type = "checkbox" name = "completed" value = "{{$task->id}}" checked = "checked">
+                                    </form>
+                                    
+                                    <div id = "taskName{{$task->id}}" class = "taskName" style = "text-decoration: line-through;">{{$task->name}}</div>
+                                    <div id = "editForm{{$task->id}}" style = "display: none">
+                                        <form action = "{{url('task/'.$task->id)}}" method = "POST">
+                                            {{csrf_field()}}
+                                          <input name = "name"  class = "form-control" value = "{{$task->name}}" > <!--need to figure out how to set this for real --> 
                                           <button class = "saveButton btn btn-success">Save</button>
                                         </form>                                        
                                     </div>
