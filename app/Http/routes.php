@@ -56,8 +56,9 @@ Route::delete('/base/task/{id}', function($id) {
 Route::get('/tasks', 'TaskController@index');
 Route::post('/task', 'TaskController@store');
 Route::delete('/task/{task}', 'TaskController@destroy'); 
-Route::post('/task/{task}', 'TaskController@update'); 
-Route::post('/task/{task}', 'TaskController@setCompletionStateTask'); 
+
+Route::post('/task/update/{task}', 'TaskController@update'); 
+Route::post('/task/complete/{task}', 'TaskController@setCompletionStateTask'); 
 
 // Authentication Routes...
 Route::get('/login', 'Auth\AuthController@getLogin');
