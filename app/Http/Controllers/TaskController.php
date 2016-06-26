@@ -63,13 +63,19 @@ class TaskController extends Controller
         
         return redirect('/tasks'); 
     }
-    
-    public function setCompletionStateTask(Request $request, Task $task) 
-    {
-        $task->update([
-            'completed'=> $request->completed, 
-        ]);
-        
+
+    public function toggleTaskCompletion(Request $request, Task $task) 
+    {   
+        if($task->completed == TRUE) {
+             $task->update([
+                'completed'=> FALSE, 
+            ]);
+        }
+        else {
+            $task->update([
+                'completed'=> TRUE,
+            ]);
+        }
         return redirect('/tasks'); 
     }
 }
