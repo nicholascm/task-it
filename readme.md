@@ -6,7 +6,7 @@ This is a work in progress.
 
 Fixes/Features for the Future: 
 
-[] Fix: the task 'complete' issue (improper type currently being saved to database)
+[x] Fix: the task 'complete' issue (improper type currently being saved to database)
+[] Fix: Style the login, register and task page 
 [] Feature: Only pull down a subset of incomplete/complete tasks, instead of all tasks
 [] Feature: Share tasks with another user
-[] Fix: Style the login, register and task page 
