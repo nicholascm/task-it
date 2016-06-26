@@ -16,7 +16,7 @@
 
             <!-- Task Name -->
             <div class="form-group">
-                <label for="task" class="col-sm-3 control-label">Task</label>
+                <label for="task" class="col-sm-3 control-label">Task Name</label>
 
                 <div class="col-sm-6">
                     <input type="text" name="name" id="task-name" class="form-control">
@@ -46,15 +46,16 @@
     @if (count($tasks) > 0)
     <div class = "container"> 
     
-                <h3 class = "text-center">Tasks</h3>
+                <h3 class = "text-center">Tasks<i class="fa fa-camera-retro fa-lg"></i></h3>
+
 
                <ul class = "list-group">
                 @foreach($tasks as $task) 
                     @if($task->completed == FALSE)
-                            <li class="list-group-item">
+                            <li class="list-group-item card">
                               <div class="container">
                                 <div class="row">
-                                  <div class="col-xs-8">
+                                  <div class="col-xs-12">
                                     
 
 
@@ -74,19 +75,15 @@
                                           <button class = "saveButton btn btn-success">Save</button>
                                         </form>                                        
                                     </div>
+                                      <button value = "{{$task->id}}" class = "editButton btn btn-primary">Edit</button>
 
-                                
-                                  </div>
-                                  <div class="col-xs-4">
-                                    <button value = "{{$task->id}}" class = "editButton btn btn-primary">Edit</button>
-                                    <form action="{{ url('task/'.$task->id) }}" method="POST">
+                                      <form action="{{ url('task/'.$task->id) }}" method="POST">
+
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
                             
-                                        <button class = "btn btn-alert">Delete</button>
+                                      <button class = "btn btn-alert">Delete</button>
                                     </form>
-                                      <!--<a><span id = "edit" class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-                                      <a><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a> -->
                                   </div>
                                 </div>
                               </div>

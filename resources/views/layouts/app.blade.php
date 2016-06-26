@@ -6,6 +6,7 @@
 
         <!-- CSS And JavaScript -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href = "{{ asset('css/app-customized.css') }}" rel = "stylesheet">
         <script type="text/javascript" src="{{ asset('js/jquery3.js') }}"></script>
         <script type="text/javascript" src="{{ asset('js/todo.js') }}"></script>
 

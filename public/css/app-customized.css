@@ -1,0 +1,28 @@
+body {
+	background-color: #0F4C5C;
+}
+
+/*material design-like box shadow */
+
+h1 { 
+	color: white; 
+ }
+
+h3 {
+	color: white;
+}
+
+label {
+	color: white;
+}
+
+ul.list-group {
+	border-radius: 0px;
+}
+
+li.list-group-item {
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+	border-radius: 0px;
+}
+
+
