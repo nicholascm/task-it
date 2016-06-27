@@ -53,13 +53,8 @@
                 @foreach($tasks as $task) 
                     @if($task->completed == FALSE)
                             <li class="list-group-item card">
-                              <div class="container">
                                 <div class="row">
                                   <div class="col-xs-12">
-                                    
-
-
-
                                     <form id = "completeForm{{$task->id}}" name = "completed" action = "{{ url('task/complete/'.$task->id) }}" method = "POST">
                                           {{ csrf_field() }}
                                         <input class = "completionCheckbox" id ="{{$task->id}}" type = "checkbox" name = "completed" value = "{{$task->id}}">
@@ -68,6 +63,9 @@
 
                                     
                                     <div id = "taskName{{$task->id}}" class = "taskName">{{$task->name}}</div>
+
+                                    <div class = "col-xs-12 pull-right">
+                                   
                                     <div id = "editForm{{$task->id}}" style = "display: none">
                                         <form action = "{{url('task/update/'.$task->id)}}" method = "POST">
                                             {{csrf_field()}}
@@ -83,8 +81,8 @@
                                         {{ method_field('DELETE') }}
                             
                                       <button class = "btn btn-alert">Delete</button>
-                                    </form>
-                                  </div>
+                                      </form>
+                                      </div>
                                 </div>
                               </div>
                             </li>
@@ -136,7 +134,7 @@
                     @endif
                 @endforeach
                 </ul>
-
+          </div>
         </div>
     @endif
 @endsection
