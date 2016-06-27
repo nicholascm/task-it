@@ -46,8 +46,33 @@
     @if (count($tasks) > 0)
     <div class = "container"> 
     
+    
                 <h3 class = "text-center">Tasks<i class="fa fa-camera-retro fa-lg"></i></h3>
+                @foreach($tasks as $task)
+                
+                    <!-- remove the below component --> 
 
+                    <li class="list-group-item card">
+                      <div class="container">
+                        <div class="row">
+                          <a><i class="fa fa-square-o fa-lg"></i></a>
+                             {{$task->name}}
+                           <!-- <span>
+                            <form id = "editInput">
+                              <input value = "Something">
+                              <button id = "save" type = "submit">Save</button>
+                            </form>
+                            </span> -->
+                            <span class = "pull-right">
+                               <a><i class="fa fa-pencil-square-o fa-lg"></i></a>
+                                  <a><i class="fa fa-trash-o fa-lg"></i></a>
+                            </span>
+                        </div>
+                      </div>
+                    </li>
+                @endforeach
+
+    <!-- REmove the above component --> 
 
                <ul class = "list-group">
                 @foreach($tasks as $task) 
