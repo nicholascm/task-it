@@ -1,19 +1,26 @@
 <!--Prototype for new UI --> 
 
 
-<li class="list-group-item card">
-      <div class="container">
-        <div class="row">
-          <a><i class="fa fa-square-o fa-lg"></i></a>
- something
-            <!--<form id = "editInput">
-              <input value = "Something">
-              <button id = "save" type = "submit">Save</button>
-            </form> -->
-            <div class = "pull-right">
-              <a><span id = "edit" class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-              <a><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-            </div>
-        </div>
-      </div>
-    </li>
+                    <!-- remove the below component --> 
+
+                    <li class="list-group-item card">
+                      <div class="container">
+                        <div class="row">
+                          <a><i class="fa fa-square-o fa-lg"></i></a>
+                             {{$task->name}}
+                           <!-- <span>
+                            <form id = "editInput">
+                              <input value = "Something">
+                              <button id = "save" type = "submit">Save</button>
+                            </form>
+                            </span> -->
+                            <span class = "pull-right">
+                               <a><i class="fa fa-pencil-square-o fa-lg"></i></a>
+                               <a><i class="fa fa-trash-o fa-lg"></i></a>
+                            </span>
+                        </div>
+                      </div>
+                    </li>
+                @endforeach
+
+    <!-- REmove the above component --> 
