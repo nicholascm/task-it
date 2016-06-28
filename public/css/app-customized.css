@@ -4,8 +4,8 @@ body {
 
 /*material design-like box shadow */
 
-h1 { 
-	color: white; 
+h1 {
+	color: white;
  }
 
 h3 {
@@ -25,4 +25,6 @@ li.list-group-item {
 	border-radius: 0px;
 }
 
-
+i:hover {
+	color: red;
+}

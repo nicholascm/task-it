@@ -1,12 +1,8 @@
-<!--Prototype for new UI --> 
-
-
-                    <!-- remove the below component --> 
 
                     <li class="list-group-item card">
                       <div class="container">
                         <div class="row">
-                          <a><i class="fa fa-square-o fa-lg"></i></a>
+                          <a><i class="fa fa-check-square-o fa-lg"></i></a>
                              {{$task->name}}
                            <!-- <span>
                             <form id = "editInput">
@@ -21,6 +17,3 @@
                         </div>
                       </div>
                     </li>
-                @endforeach
-
-    <!-- REmove the above component --> 
