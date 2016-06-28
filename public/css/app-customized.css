@@ -25,6 +25,10 @@ li.list-group-item {
 	border-radius: 0px;
 }
 
+li form {
+	display: inline;
+}
+
 i:hover {
 	color: red;
 }
