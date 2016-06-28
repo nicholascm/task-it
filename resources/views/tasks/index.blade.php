@@ -11,7 +11,9 @@
         @include('common.errors')
 
         <!-- New Task Form -->
-    
+    <div class = "container">
+        <div class = "row">
+            <div class = "col-md-8 col-md-offset-2">
         <form action="/task" method="POST" class="form-horizontal">
             {{ csrf_field() }}
 
@@ -25,16 +27,18 @@
             </div>
 
             <!-- Add Task Button -->
-            <div class="form-group">
+            <div class="form-group text-right">
                 <div class="col-sm-offset-3 col-sm-6">
-                    <button type="submit" class="btn btn-default">
+                    <button type="submit" class="btn btn-success">
                         <i class="fa fa-plus"></i> Add Task
                     </button>
                 </div>
             </div>
         </form>
+        </div>
     </div>
-
+    </div>
+</div>
 
     <!-- Current Tasks -->
 
