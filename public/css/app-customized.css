@@ -32,3 +32,7 @@ li form {
 i:hover {
 	color: red;
 }
+
+.date .form-control {
+	max-width: 50px;
+}

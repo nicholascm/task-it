@@ -75,8 +75,11 @@
                         <button class = "saveButton btn btn-success">Save</button>
                       </form>
                   </span>
+                  <span>3/3/2342</span>
+          
                  </div>
                  <div class = "col-md-2 col-xs-2">
+
                   <button class = "editButton btn btn-link" value = "{{$task->id}}"><i class="fa fa-pencil-square-o fa-lg"></i></button>
                   <form action="{{ url('task/'.$task->id) }}" method="POST">
 
