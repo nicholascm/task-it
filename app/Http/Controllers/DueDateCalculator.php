@@ -15,7 +15,7 @@ class DueDateCalculator
 
   private daysOfweek = array('sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday');
 
-  private function today
+  private function today ()
   {
     $today = getdate();
 
@@ -30,7 +30,7 @@ class DueDateCalculator
     {
       if (array_search(word, $this->daysOfWeek))
       {
-        array_push(word, $daysSpecifiedByTask); 
+        array_push(word, $daysSpecifiedByTask);
       }
     }
 
@@ -38,7 +38,7 @@ class DueDateCalculator
 
   private function getWords ()
   {
-    $words = explode($this->task->name);
+    $words = strtolower(explode($this->task->name));
     return $words;
   }
 
@@ -49,10 +49,12 @@ class DueDateCalculator
       for($i=0; $i < length(words); $i++)
       {
         array_search()
-        //search the array for keywords
-        //keywords found go into new list with keyword index
-        //search words immediately after keyword for daysOfWeek presence
-        //if daysOfWeek present after keyword, find next date with that daysOfWeek
+        //search the array for keywords preceding the days of week specified
+        //day of week specified alone is not as indicative as day of week with keyword directly prior 
+
+        //if numDayspecified > numToday, add diffrence to todays date to get due date
+
+        //if numDayspecified < numToday, find difference and subtract from 7, then add to todays date to get due date
 
 
         //
