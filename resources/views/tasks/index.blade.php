@@ -75,8 +75,8 @@
                         <button class = "saveButton btn btn-success">Save</button>
                       </form>
                   </span>
-                  <span>3/3/2342</span>
-          
+                  <span>{{$task->due_date}}</span>
+
                  </div>
                  <div class = "col-md-2 col-xs-2">
 

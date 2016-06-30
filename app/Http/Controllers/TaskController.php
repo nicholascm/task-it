@@ -2,73 +2,86 @@
 
 namespace App\Http\Controllers;
 
-use App\Task; 
+use App\Task;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use App\Http\Controllers\Controller; 
+use App\Http\Controllers\Controller;
 
-use App\Repositories\TaskRepository; 
+use App\Repositories\TaskRepository;
 
+use App\Classes\DueDateCalculator;
 
 class TaskController extends Controller
 {
-    
-    protected $tasks; 
-    
+
+    protected $tasks;
+
     //
     public function __construct(TaskRepository $tasks)
     {
-        $this->middleware('auth'); 
-        $this->tasks = $tasks; 
+        $this->middleware('auth');
+        $this->tasks = $tasks;
     }
-    
-    public function store(Request $request) 
+
+    public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|max:255'    
-        ]); 
-        $request->user()->tasks()->create([
-            'name'=> $request->name,     
-        ]); 
+            'name' => 'required|max:255'
+        ]);
+
+        $dateCheck = new DueDateCalculator($request);
         
-        return redirect('/tasks'); 
+        $dates = $dateCheck->getDueDatesSpecifiedByTask();
+        if(count($dates) > 0) {
+          $request->user()->tasks()->create([
+              'name'=> $request->name,
+              'due_date' => $dates[0],
+          ]);
+        } else {
+          $request->user()->tasks()->create([
+              'name'=> $request->name,
+          ]);
+        }
+
+
+        return redirect('/tasks');
     }
-    
+
     public function index(Request $request)
     {
-       
+
         return view('tasks.index', [
             'tasks' => $this->tasks->forUser($request->user()),
-        ]); 
+        ]);
     }
-    
+
     public function destroy(Request $request, Task $task)
     {
         //TODO: Setup an authorization policy for destroying tasks as a security measure
         //$this->authorize('destroy', $task);
-        $task->delete(); 
-        return redirect('/tasks'); 
+        $task->delete();
+        return redirect('/tasks');
     }
-    
+
     //nothing references the below route yet
     public function update(Request $request, Task $task)
     {
 
             $task->update([
                 'name'=> $request->name,
-            ]); 
-        
-        return redirect('/tasks'); 
+            ]);
+
+        return redirect('/tasks');
     }
 
-    public function toggleTaskCompletion(Request $request, Task $task) 
-    {   
+    public function toggleTaskCompletion(Request $request, Task $task)
+    {
         if($task->completed == TRUE) {
              $task->update([
-                'completed'=> FALSE, 
+                'completed'=> FALSE,
             ]);
         }
         else {
@@ -76,6 +89,6 @@ class TaskController extends Controller
                 'completed'=> TRUE,
             ]);
         }
-        return redirect('/tasks'); 
+        return redirect('/tasks');
     }
 }
