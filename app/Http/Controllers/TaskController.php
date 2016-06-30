@@ -31,11 +31,13 @@ class TaskController extends Controller
         $this->validate($request, [
             'name' => 'required|max:255'
         ]);
+        $name = $request->name;
 
-        $dateCheck = new DueDateCalculator($request);
-        
+        $dateCheck = new DueDateCalculator($name);
+
         $dates = $dateCheck->getDueDatesSpecifiedByTask();
-        if(count($dates) > 0) {
+
+        if(true/*count($dates) > 0*/) {
           $request->user()->tasks()->create([
               'name'=> $request->name,
               'due_date' => $dates[0],

@@ -41,7 +41,7 @@ class DueDateCalculator
     {
       if (array_search($word, $this->daysOfWeek))
       {
-        array_push($word, $daysSpecifiedByTask);
+        array_push($daysSpecifiedByTask, $word);
       }
     }
     return $daysSpecifiedByTask;
@@ -71,7 +71,7 @@ class DueDateCalculator
   {
       $formattedDates = array();
       foreach($arr as $value) {
-        array_push($date('D/M/Y', $value), $formattedDates);
+        array_push($formattedDates, $date('D/M/Y', $value));
       }
       return $formattedDates;
   }
@@ -89,15 +89,17 @@ class DueDateCalculator
       {
         $difference = $dayValue - $this->today();
         $unixDueDate = getDate()[0] + ($difference*3600);
-        array_push($unixDueDate, $dueDates);
+        array_push($dueDates, $unixDueDate);
       } else {
         $difference = 7 - ($dayValue - $this->today());
         $unixDueDate = getDate()[0] + ($difference*3600);
-        array_push($unixDueDate, $dueDates);
+        array_push($dueDates, $unixDueDate);
       }
     }
 
-    return $this->convertUnixToReadable($dueDates);
+    //return $this->convertUnixToReadable($dueDates);
+    $testArray = array('12/15/2016');
+    return $testArray;
   }
 
 }
