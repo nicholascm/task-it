@@ -40,7 +40,7 @@ class TaskController extends Controller
         if(count($dates) > 0) {
           $request->user()->tasks()->create([
               'name'=> $request->name,
-              'due_date' => $dates[1],
+              'due_date' => $dates[0],
           ]);
         } else {
           $request->user()->tasks()->create([

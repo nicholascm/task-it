@@ -36,3 +36,9 @@ i:hover {
 .date .form-control {
 	max-width: 50px;
 }
+
+.due-date {
+	display: inline;
+	padding-left: 20px;
+	font-weight: bold;
+}

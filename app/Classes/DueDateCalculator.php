@@ -2,6 +2,13 @@
 
 namespace App\Classes;
 
+
+/**
+  * @method array getDueDatesSpecifiedByTask()
+  * @method $integer today()
+  * @method array getWords()
+*/
+
 class DueDateCalculator
 {
   /*constructor takes the request and sets the task name as the request name property */
@@ -47,17 +54,16 @@ class DueDateCalculator
     return $daysSpecifiedByTask;
   }
 
-/*
+
   private function checkIfDaysPrecededByKeyword ($arr)
   {
-
     $daysPrecedByKey = array();
 
     for ($i = 0; $i < count($arr); $i++)
     {
       $location = array_search($arr[$i], $this->getWords());
 
-      if (array_search($arr[$location-1], $this->getWords())
+      if (array_search($arr[$location-1], $this->getWords()))
       {
         array_push($arr[$i], $daysPrecedByKey);
       }
@@ -65,7 +71,8 @@ class DueDateCalculator
     }
     return $daysPrecedByKey;
   }
-  */
+
+
 
   private function convertUnixToReadable ($arr)
   {
@@ -76,30 +83,29 @@ class DueDateCalculator
       return $formattedDates;
   }
   /* returns a list of dates likely indicated as the due date for the task */
+
+
   public function getDueDatesSpecifiedByTask ()
   {
     $dueDates = array();
     //TODO: Bring this back below
-    //$precedByKeyword = $this->checkIfDaysPrecededByKeyword();
-    $precedByKeyword = $this->getDaysSpecifiedByTask();
+    $precedeByKeyword = $this->getDaysSpecifiedByTask();
 
-    foreach ($precedByKeyword as $day) {
+    foreach ($precedeByKeyword as $day) {
       $dayValue = array_search($day, $this->daysOfWeek);
       if ($dayValue > $this->today())
       {
         $difference = $dayValue - $this->today();
-        $unixDueDate = getDate()[0] + ($difference*3600);
+        $unixDueDate = getDate()[0] + ($difference*86400);
         array_push($dueDates, $unixDueDate);
       } else {
-        $difference = 7 - ($dayValue - $this->today());
-        $unixDueDate = getDate()[0] + ($difference*3600);
+        $difference = 6 - ($this->today() - $dayValue);
+        $unixDueDate = getDate()[0] + ($difference*86400);
         array_push($dueDates, $unixDueDate);
       }
     }
 
     return $this->convertUnixToReadable($dueDates);
-    /*$testArray = array('12/15/2016');
-    return $testArray; */
   }
 
 }
