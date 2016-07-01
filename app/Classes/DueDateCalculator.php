@@ -78,7 +78,7 @@ class DueDateCalculator
   {
       $formattedDates = array();
       foreach($arr as $value) {
-        array_push($formattedDates, date('d/m/Y', $value));
+        array_push($formattedDates, date('Y-m-d', $value));
       }
       return $formattedDates;
   }
@@ -99,7 +99,7 @@ class DueDateCalculator
         $unixDueDate = getDate()[0] + ($difference*86400);
         array_push($dueDates, $unixDueDate);
       } else {
-        $difference = 6 - ($this->today() - $dayValue);
+        $difference = 7 - ($this->today() - $dayValue);
         $unixDueDate = getDate()[0] + ($difference*86400);
         array_push($dueDates, $unixDueDate);
       }

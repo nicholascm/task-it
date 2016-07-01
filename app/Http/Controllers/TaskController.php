@@ -45,6 +45,7 @@ class TaskController extends Controller
         } else {
           $request->user()->tasks()->create([
               'name'=> $request->name,
+              'due_date' => null,
           ]);
         }
 

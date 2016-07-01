@@ -75,7 +75,7 @@
                         <button class = "saveButton btn btn-success">Save</button>
                       </form>
                   </span>
-                  <span><p class = "due-date">Due: {{date('M d, Y', strtotime($task->due_date))}}</p></span>
+                  @if ($task->due_date != null) <span><p class = "due-date">Due: {{date('M d, Y', strtotime($task->due_date))}}</p></span> @endif
 
                  </div>
                  <div class = "col-md-2 col-xs-2">
