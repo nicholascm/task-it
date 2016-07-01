@@ -71,7 +71,7 @@ class DueDateCalculator
   {
       $formattedDates = array();
       foreach($arr as $value) {
-        array_push($formattedDates, $date('D/M/Y', $value));
+        array_push($formattedDates, date('d/m/Y', $value));
       }
       return $formattedDates;
   }
@@ -97,9 +97,9 @@ class DueDateCalculator
       }
     }
 
-    //return $this->convertUnixToReadable($dueDates);
-    $testArray = array('12/15/2016');
-    return $testArray;
+    return $this->convertUnixToReadable($dueDates);
+    /*$testArray = array('12/15/2016');
+    return $testArray; */
   }
 
 }
