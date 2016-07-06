@@ -1,12 +1,12 @@
 # Task-It
 
-This is an app I used to start learning Laravel. I've enhanced the intermediate tutorial with ability to edit tasks and changed the styling. 
+This task app takes the Laravael intermediate tutorial and adds necessary features for a fully functional task list (completion, edit, UI enhancements, etc.). 
 
-This is a work in progress. 
+In addition, this application parses task text to determine due dates and stamp due date accordingly. 
 
-Fixes/Features for the Future: 
+e.g. "Get the report done by Friday", when added, will calculate the due date for the next upcoming Friday and stamp it automatically. 
 
-[x] Fix: the task 'complete' issue (improper type currently being saved to database)
-[] Fix: Style the login, register and task page 
-[] Feature: Only pull down a subset of incomplete/complete tasks, instead of all tasks
-[] Feature: Share tasks with another user
+There is currently no way to edit the due date. Due date calculations done using app/Classes/DueDateCalculator.php.
+
+Thanks!
+
